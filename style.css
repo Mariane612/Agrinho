@@ -1,1 +1,35 @@
+body{
+background: mediumspringgreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-size: 4vw; 
+}
 
+h1{
+text-align: center;
+font-family: 'Courier New', Courier, monospace;
+
+}
+
+#startBtn{
+
+  padding: 1em 2em;
+  font-size: 2em;
+background: dodgerblue;
+align-items: center;
+font-size:  center;
+}
+
+
+#submitBtn{
+
+  padding: 0rem 1em;
+  font-size: 1em;
+  background: skyblue;
+  align-items: center;
+  margin: 0;
+font-size: center;
+}
