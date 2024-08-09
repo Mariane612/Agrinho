@@ -1,35 +1,58 @@
 body{
-background: mediumspringgreen;
+background: #4dffe1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height:110vh;
   margin: 0;
   font-size: 4vw; 
 }
 
-h1{
+<h2>{
 text-align: center;
 font-family: 'Courier New', Courier, monospace;
 
 }
 
 #startBtn{
+<!- botão de inicio->
 
-  padding: 1em 2em;
-  font-size: 2em;
+  text-align: center;
+  font-size:  center;
+  border-style:outset;
+  padding: 1em 1em;
+  font-size: 1em;
 background: dodgerblue;
-align-items: center;
-font-size:  center;
+  border-radius: 7px;
+  margin:120px;
+
 }
 
 
 #submitBtn{
-
-  padding: 0rem 1em;
+<!-- botão de enviar ->
+  
+  padding: 1em 1em;
   font-size: 1em;
   background: skyblue;
   align-items: center;
-  margin: 0;
-font-size: center;
+  margin: 5px;
+font-size: center;   
+  }
+
+input{
+  width: 250px; 
+  height: 80px; 
+  font-size: 1em; 
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: center;
+  <br> <br>      
+}
+img {
+    position: absolute;
+    top: 100px; /* Distância do topo da tela */
+    left: 1450px; /* Distância da esquerda da tela */
+    width: 200px; /* Largura da imagem */
+    height: auto; /* Mantém a proporção original da imagem */
 }
