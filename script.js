@@ -1,43 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio da tabuada</title>
+let num1, num2, correctAnswer;
+let questionsAnswered = 0;
+let correctCount = 0;
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h2>Desafio da Tabuada</h2>
-
-        <div id="game">
-            <p id="question"></p>
-            <input type="number" id="answer"placeholder="Resposta" style="display: none"; >
-
-
-            <button id="submitBtn" style="display: none;">Enviar</button>
-
-
-            <p id="feedback"></p>
-            <p id="result"></p>
-        </div>
-      <button id="startBtn">Iniciar Jogo</button>
+document.getElementById('startBtn').addEventListener('click', startGame);
+document.getElementById('submitBtn').addEventListener('click', checkAnswer);
 
 
 
- <img src="aluno.png" width="350px" height="350px"   >
-    
+function startGame() {
+  questionsAnswered = 0;
+  correctCount = 0;
+  document.getElementById('feedback').innerText = '';
+  document.getElementById('result').innerText = '';
+  document.getElementById('startBtn').style.display = 'none';
+  document.getElementById('answer').style.display = 'inline';
+  document.getElementById('submitBtn').style.display = 'inline';
+  generateQuestion();
+}
 
-        
-    
-    
-    
-    </div>
-    <script src="script.js"></script>
+function generateQuestion() {
+  if (questionsAnswered >= 10) {
+    showResult();
+    return;
+  }
+  num1 = Math.floor(Math.random() * 10) + 1;
+  num2 = Math.floor(Math.random() * 10) + 1;
+  correctAnswer = num1 * num2;
+  document.getElementById('question').innerText = `Quanto é ${num1} x ${num2}?`;
+  questionsAnswered++;
+}
 
+function checkAnswer() {
+  const userAnswer = parseInt(document.getElementById('answer').value, 10);
+  if (isNaN(userAnswer)) {
+    document.getElementById('feedback').innerText = 'Por favor, digite um número.';
+  } else if (userAnswer === correctAnswer) {
+    document.getElementById('feedback').innerText = 'Correto! Muito bem!';
+    correctCount++;
+  } else {
+    document.getElementById('feedback').innerText = 'Errado.';
+  }
+  document.getElementById('answer').value = '';
+  generateQuestion();
+}
 
-
-
-</body>
-</html>
+function showResult() {
+  document.getElementById('feedback').innerText = '';
+  document.getElementById('question').innerText = '';
+  document.getElementById('answer').style.display = 'none';
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('result').innerText = `Jogo terminado! Você acertou ${correctCount} de 10 perguntas.`;
+}
